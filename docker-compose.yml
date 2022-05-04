@@ -31,8 +31,6 @@ services:
       args:
         YOUR_ENV: production
     restart: always
-    ports:
-      - "8072:8072"
     depends_on:
       - db
       - products-run-migrations
