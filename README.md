@@ -31,11 +31,11 @@ With Docker:
 4. Test requirements: `poetry install` (if necessary).
 
 ## Sources
-* /content_aggregator/content_aggregator.py - main module with a business logic.  
+* /duplicate_counter/duplicate_counter.py - main module with a business logic.  
   Project submodules:
-* /mypackages/logging_repository.py - logging to console, file, logstash.
 * /mypackages/peewee_models.py - the data model for peewee ORM.
-* /mypackages/settings_loader.py - configure from setting file and env variables.  
+* /mypackages/heandlers/version1/schemas/ - there are contracts/schemas for endpoints.
+* /mypackages/heandlers/version1/ - the handlers for endpoints. 
 
 ### Configure files
 * .db_env.yaml - config for db  
