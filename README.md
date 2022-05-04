@@ -34,8 +34,8 @@ With Docker:
 * /duplicate_counter/duplicate_counter.py - main module with a business logic.  
   Project submodules:
 * /mypackages/peewee_models.py - the data model for peewee ORM.
-* /mypackages/heandlers/version1/schemas/ - there are contracts/schemas for endpoints.
-* /mypackages/heandlers/version1/ - the handlers for endpoints. 
+* /mypackages/heandlers/version1/schemas/* - there are contracts/schemas for endpoints.
+* /mypackages/heandlers/version1/*.py - the handlers for endpoints. 
 
 ### Configure files
 * .db_env.yaml - config for db  
