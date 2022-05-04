@@ -14,6 +14,7 @@ from mypackages import peewee_models
 from mypackages.heandlers.version1.adding_payload_handler import AddingPayloadHandler
 from mypackages.heandlers.version1.deleting_payload_handler import DeletingPayloadHandler
 from mypackages.heandlers.version1.getting_payload_handler import GettingPayloadHandler
+from mypackages.heandlers.version1.getting_statistic_handler import GettingStatisticHandler
 from mypackages.heandlers.version1.putting_payload_handler import PuttingPayloadHandler
 
 load_dotenv()
@@ -38,13 +39,14 @@ def make_app(config: dict):
     dao = peewee_models.Manager(database)  # init data access object
 
     return ServerCounter([
-        (r"/metrics", MetricsHandler),
-        (r"/", MainHandler),
+        (r"/metrics",              MetricsHandler),
+        (r"/",                     MainHandler),
         # TODO I prefer path `api/v1/some_endpoint`
-        (r"/api/add", AddingPayloadHandler),
-        (r"/api/get", GettingPayloadHandler),
-        (r"/api/remove", DeletingPayloadHandler),
+        (r"/api/add",              AddingPayloadHandler),
+        (r"/api/get",              GettingPayloadHandler),
+        (r"/api/remove/([^/]+=$)", DeletingPayloadHandler),
         (r"/api/update/([^/]+=$)", PuttingPayloadHandler),
+        (r"/api/statistic",        GettingStatisticHandler),
     ],
         # can call by self.settings['database']
         database=database,

@@ -1,8 +1,6 @@
 import base64
-from http import HTTPStatus
 from typing import Optional, Awaitable
 
-import tornado
 from tornado.escape import json_encode
 from tornado.web import RequestHandler
 
@@ -21,14 +19,6 @@ class AppHandler(RequestHandler):
     def initialize(self) -> None:
         self.database = self.settings['database']
         self.dao = self.settings['dao']
-
-    async def sent_bad_request(self, reason: Optional[str] = None):
-        """
-        Replying bad request to client
-        """
-        raise tornado.web.HTTPError(HTTPStatus.BAD_REQUEST)
-        # self.set_status(HTTPStatus.BAD_REQUEST)
-        # await self.finish(reason or self.bad_request)
 
 
 class KeyGeneratorMixin:

@@ -29,6 +29,8 @@ class PuttingPayloadHandler(AppHandler, KeyGeneratorMixin):
             raise tornado.web.HTTPError(HTTPStatus.NOT_FOUND, log_message=f'object: {key} not found')
 
         payload.arguments = parameters.json()
+        payload.duplicate_count = 0
+        await self.dao.update(payload)
 
         response = PuttingPayloadResponseSchema(key=key)
         return self.write(response.json())

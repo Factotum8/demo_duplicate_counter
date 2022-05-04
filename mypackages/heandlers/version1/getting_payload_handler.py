@@ -5,7 +5,7 @@ from tornado import web
 from tornado.escape import json_decode
 
 from mypackages import peewee_models
-from mypackages.heandlers.version1.abstract_handler import AppHandler, KeyGeneratorMixin
+from mypackages.heandlers.version1.abstract_handler import AppHandler
 from mypackages.heandlers.version1.schemas.getting_payload import GettingPayloadRequestSchema
 
 

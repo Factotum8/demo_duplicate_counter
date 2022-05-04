@@ -4,7 +4,7 @@ import tornado
 from tornado import web
 
 from mypackages import peewee_models
-from mypackages.heandlers.version1.abstract_handler import AppHandler, KeyGeneratorMixin
+from mypackages.heandlers.version1.abstract_handler import AppHandler
 
 
 class DeletingPayloadHandler(AppHandler):
@@ -12,8 +12,8 @@ class DeletingPayloadHandler(AppHandler):
     The endpoint provides `delete` operation for payload.
     """
 
-    async def get(self):
-        key = self.get_argument('key')
+    async def get(self, slug):
+        key = slug
         try:
             payload = await self.dao.get(peewee_models.Payloads, key=key)
         except peewee_models.DoesNotExist:
