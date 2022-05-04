@@ -5,7 +5,7 @@ This assumption is the test task by applying for job.
 ## Example
 Request:  
 `
-curl -X POST http://0.0.0.0:8072/api/add -H 'Content-Type: application/json' -d '{"login":"my_login","password":"my_password"}'
+curl -X POST http://0.0.0.0:80/api/add -H 'Content-Type: application/json' -d '{"login":"my_login","password":"my_password"}'
 `  
 Reply:  
 `
