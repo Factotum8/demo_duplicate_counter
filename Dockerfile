@@ -19,10 +19,9 @@ RUN pip install "poetry==$POETRY_VERSION"
 # in order to optimize rebuilding
 COPY pyproject.toml .
 COPY poetry.lock .
+COPY fixture.py .
 
-RUN poetry config virtualenvs.create false \
-  && poetry install $(test "$YOUR_ENV" == production && echo "--no-dev") --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false  \
+    && poetry install $(test "$YOUR_ENV" == production && echo "--no-dev") --no-interaction --no-ansi
 
 COPY . .
-
-#CMD python ./duplicate_counter/duplicate_counter.py
